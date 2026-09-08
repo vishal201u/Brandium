@@ -52,6 +52,14 @@ html,
 body {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
+}
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
 .main {
@@ -68,7 +76,6 @@ body {
   background-image: url(https://www.brandium.nl/wp-content/uploads/2023/09/bran-hero1-scaled.jpg);
   background-position: 50% 30%;
   background-size: cover;
-  
 }
 
 .svglogo svg {
@@ -168,6 +175,27 @@ body {
   transform: translateY(-115%);
 }
 
+@media (max-width: 820px) {
+  .anim:hover h3 {
+    transform: none;
+  }
+
+  .mousefollower {
+    display: none;
+  }
+
+  .maintext h1,
+  .maintext2 h1,
+  .maintext3 h1,
+  .maintext4 h1,
+  .div1 h1,
+  .text .lowertext span h1 {
+    transform: none !important;
+    rotate: 0deg !important;
+    y: 0 !important;
+  }
+}
+
 .mousefollower {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -189,16 +217,15 @@ body {
   overflow: hidden;
 }
 
-
 .innerdiv {
   min-height: 0%;
   background-color: yellow;
   position: relative;
 }
 
-.innerdiv i{
+.innerdiv i {
   left: 50%;
-  transform: translate(-50%,20%);
+  transform: translate(-50%, 20%);
   font-size: 3vw;
   color: white;
   position: absolute;
@@ -397,13 +424,13 @@ body {
   border-top-left-radius: 9vw;
   border-top-right-radius: 9vw;
 }
-.page3main{
-  min-height:100vh;
+.page3main {
+  min-height: 100vh;
   width: 100vw;
   background-color: #0f0f0f;
 }
 
-.maintext2{
+.maintext2 {
   /* background-color: red; */
   display: inline-block;
   overflow: hidden;
@@ -411,11 +438,10 @@ body {
   display: flex;
   height: 40vw;
   align-items: center;
-  flex-direction: column
+  flex-direction: column;
 }
 
 .maintext2 h1 {
-
   display: inline-block;
   font-size: 12vw;
   font-family: primary;
@@ -506,13 +532,12 @@ body {
   background-color: #f9f7f4;
 }
 
-.maintext3{
+.maintext3 {
   display: flex;
   align-items: center;
   flex-direction: column;
   padding-top: 12vw;
   overflow: hidden;
-
 }
 
 .maintext3 h1 {
@@ -545,7 +570,7 @@ body {
   width: 8vw;
 }
 
-.maintext4{
+.maintext4 {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -686,15 +711,13 @@ body {
   transform: translateX(-100%);
 }
 
-.leftstickycircle{
+.leftstickycircle {
   position: relative;
 }
-.leftstickycircle p{
+.leftstickycircle p {
   z-index: 9999;
   color: rgb(255, 0, 0);
   position: absolute;
-
-
 }
 
 .marque img {
@@ -786,8 +809,6 @@ h3 {
   margin-bottom: 2vh;
 }
 
-
-
 /* .line{
   overflow: hidden;
   height: 9.5vh;
@@ -800,20 +821,501 @@ h3 {
   transform: translateY(-100%);
 } */
 
-
 .text .lowertext h1 span {
-  display:inline-block; 
+  display: inline-block;
   height: 9vh;
-  width:fit-content ;
-  overflow: hidden; 
+  width: fit-content;
+  overflow: hidden;
 }
-
 
 .text .lowertext span h1 {
-  display:inline-block; 
-  margin: 0; 
+  display: inline-block;
+  margin: 0;
   transform: translateY(100%);
-  
 }
 
+@media (max-width: 1100px) {
+  .page1 {
+    height: 120vh;
+  }
 
+  .page1 .text h1 {
+    font-size: 18vw;
+    letter-spacing: -3px;
+  }
+
+  .rightnav {
+    right: 2%;
+  }
+
+  .button {
+    width: 220px;
+  }
+
+  .upperbox {
+    flex-direction: column;
+    gap: 4vw;
+  }
+
+  .upp,
+  .upperleftbox,
+  .upperrightbox {
+    width: min(100%, 620px);
+    height: 68vw;
+    max-height: 620px;
+  }
+
+  .maintext {
+    padding: 0 8vw;
+  }
+
+  .lasttext {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    height: auto;
+    padding: 0 5vw 8vw;
+  }
+
+  .lasttext h1 {
+    width: 100%;
+    padding: 0;
+    font-size: clamp(2.3rem, 4vw, 5rem);
+  }
+
+  .logosection .row1 img {
+    width: 12vw;
+  }
+
+  .largetextdiv {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .svglogos {
+    top: 1.5rem;
+    left: 0.75rem;
+    padding-left: 0;
+  }
+
+  .svglogo svg {
+    width: 9vw;
+    min-width: 28px;
+  }
+
+  .page1 .text {
+    padding-top: 20vw;
+  }
+
+  .div1 {
+    height: 18vw;
+  }
+
+  .page1 .text h1 {
+    font-size: 20vw;
+    line-height: 18vw;
+  }
+
+  .leftstickytext {
+    left: 1rem;
+    bottom: 1rem;
+  }
+
+  .leftstickytext h1 {
+    font-size: 1.2rem;
+  }
+
+  .rightnav {
+    top: 1.5rem;
+    right: 1rem;
+  }
+
+  .rightnav h3 {
+    font-size: 2.2vh;
+    line-height: 3.5vh;
+  }
+
+  .anim {
+    height: 3.8vh;
+  }
+
+  .lowertext h1 {
+    font-size: clamp(2.3rem, 7vw, 4.4rem);
+    line-height: 1.15;
+  }
+
+  .button {
+    width: min(100%, 260px);
+    height: 58px;
+  }
+
+  .button h3 {
+    font-size: 1.1rem;
+  }
+
+  .maintext {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    padding: 0 4vw;
+  }
+
+  .maintext h1 {
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    height: auto;
+    margin-top: 0.5rem;
+  }
+
+  .maintext2 h1,
+  .maintext3 h1,
+  .maintext4 h1 {
+    font-size: clamp(4rem, 14vw, 10rem);
+    height: auto;
+    line-height: 0.98;
+  }
+
+  .maintextimgdiv {
+    width: 92vw;
+    margin-left: 4vw;
+  }
+
+  .textdiv h1 {
+    font-size: clamp(2rem, 4vw, 4rem);
+  }
+
+  .middlebutton {
+    padding-right: 0;
+  }
+
+  .middlebutton h1 {
+    width: min(90%, 420px);
+    height: auto;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  .logosection {
+    padding: 10vw 5vw;
+  }
+
+  .logosection .row1 {
+    flex-wrap: wrap;
+    gap: 1rem;
+    height: auto;
+    justify-content: center;
+  }
+
+  .logosection .row1 img {
+    width: 22%;
+    min-width: 70px;
+  }
+
+  .awdsec {
+    padding: 2vw 5vw;
+  }
+
+  .largetextdiv .left h1 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin: 6vh 0 2vh;
+  }
+
+  .largetextdiv .right h3 {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .move {
+    height: 22vw;
+    min-height: 95px;
+  }
+
+  .marque h1 {
+    font-size: clamp(2rem, 6vw, 4.5rem);
+  }
+
+  .footer {
+    flex-direction: column;
+    height: auto;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .leftfooter {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .rightfooter {
+    width: 100%;
+  }
+
+  .rightfooter h3,
+  .rightfooter h1 {
+    text-align: left;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .bottomfooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .mousefollower {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .page1 {
+    height: 100vh;
+  }
+
+  .page1 .text {
+    padding-top: 24vw;
+  }
+
+  .div1 {
+    height: 20vw;
+  }
+
+  .page1 .text h1 {
+    font-size: 22vw;
+    letter-spacing: -2px;
+  }
+
+  .page2 {
+    border-top-left-radius: 52px;
+    border-top-right-radius: 52px;
+  }
+
+  .rightnav,
+  .leftstickycircle {
+    display: none;
+  }
+
+  .leftstickytext h1 {
+    font-size: 0.9rem;
+  }
+
+  .text {
+    padding: 12vw 5vw;
+  }
+
+  .lowertext {
+    width: 100%;
+  }
+
+  .upperbox {
+    padding: 0 5vw;
+  }
+
+  .upp h1 {
+    font-size: 1.6rem;
+  }
+
+  .upp h3 {
+    font-size: 0.8rem;
+  }
+
+  .maintext {
+    margin-top: 4rem;
+  }
+
+  .lasttext h1 {
+    font-size: clamp(1.8rem, 7vw, 3rem);
+  }
+
+  .logo-section,
+  .logosection {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+
+  .logosection .row1 img {
+    width: 42%;
+  }
+
+  .leftfooter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .leftfooter h3,
+  .rightfooter h3,
+  .rightfooter h1 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Extra minimal mobile (<=480px) */
+@media (max-width: 480px) {
+  html,
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Reduce hero and remove heavy visuals */
+  .page1 {
+    height: 80vh;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .page1 .text {
+    padding-top: 18vw;
+  }
+
+  .page1 .text h1 {
+    font-size: 24vw;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .svglogos,
+  .outercircle,
+  .leftstickycircle,
+  .rightnav {
+    display: none !important;
+  }
+
+  .maintext,
+  .maintext2 h1,
+  .maintext3 h1,
+  .maintext4 h1 {
+    font-size: clamp(2rem, 9vw, 4rem);
+    margin-top: 2rem;
+    padding: 0 4vw;
+  }
+
+  /* Make call-to-action full width and prominent */
+  .button {
+    width: 100%;
+    max-width: none;
+    height: 56px;
+    border-radius: 12px;
+  }
+
+  .upperbox,
+  .largetextdiv {
+    flex-direction: column;
+    padding: 0 4vw;
+    gap: 2rem;
+  }
+
+  .upperleftbox,
+  .upperrightbox,
+  .upp {
+    width: 100%;
+    height: auto;
+  }
+
+  .lasttext {
+    padding: 2rem 4vw;
+    gap: 1rem;
+  }
+
+  .logosection .row1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    align-items: center;
+  }
+
+  /* Hide decorative marque on smallest screens */
+  .move,
+  .marque {
+    display: none !important;
+  }
+
+  /* Reduce footer to essentials */
+  .footer {
+    padding: 2rem 1rem;
+  }
+
+  .leftfooter .leftrow1,
+  .leftfooter .leftrow2 {
+    display: block;
+    gap: 0.5rem;
+  }
+
+  .bottomfooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  /* Improve tappable targets */
+  .anim h3,
+  .button h3,
+  .leftfooter h3,
+  .rightfooter h3 {
+    padding: 10px 0;
+  }
+
+  /* Center text for consistent mobile alignment */
+  .text,
+  .lowertext h1,
+  .lasttext h1,
+  .maintext,
+  .maintext h1,
+  .maintext2 h1,
+  .maintext3 h1,
+  .maintext4 h1,
+  .largetextdiv .left h1,
+  .largetextdiv .right h3,
+  .textdiv h1 {
+    text-align: center;
+  }
+
+  /* Ensure the 'FEATURED WORK' block stacks and centers cleanly */
+  .maintext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0 4vw;
+  }
+
+  .maintext h1 {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    transform: none !important;
+  }
+
+  /* Ensure 'branding & identity' rows center inside their container */
+  .textdiv {
+    justify-content: center;
+    padding: 2vw 4vw;
+  }
+
+  .textdiv h1 {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-size: 6.5vw;
+  }
+
+  .lasttext {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+  }
+
+  /* Ensure cursor-follow images are fully hidden on mobile */
+  .textdiv img,
+  .largetextdiv img,
+  .upperleftbox img,
+  .upperrightbox img {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}

@@ -1,5 +1,14 @@
+const isMobile = window.matchMedia("(max-width: 820px)").matches;
+const minimalMobile = window.matchMedia("(max-width: 520px)").matches;
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 function mouseFollower() {
   var mouse = document.querySelector(".mousefollower");
+
+  if (!mouse || isMobile || minimalMobile || prefersReducedMotion) {
+    if (mouse) mouse.style.display = "none";
+    return;
+  }
 
   document.addEventListener("mousemove", function (dets) {
     var scrollX = window.scrollX || document.documentElement.scrollLeft;
@@ -16,6 +25,9 @@ function mouseFollower() {
   });
 }
 function lenis() {
+  // Disable smooth-scrolling on very small screens or when user prefers reduced motion
+  if (minimalMobile || prefersReducedMotion) return;
+
   const lenis = new Lenis()
 
   lenis.on('scroll', (e) => {
@@ -30,6 +42,8 @@ function lenis() {
   requestAnimationFrame(raf)
 }
 function stickyCircle() {
+  if (isMobile || minimalMobile || prefersReducedMotion) return;
+
   var circle = document.querySelector(".innerdiv")
 
   window.addEventListener("scroll", function () {
@@ -42,6 +56,8 @@ function stickyCircle() {
   })
 }
 function svgAnimation() {
+  if (isMobile || minimalMobile || prefersReducedMotion) return;
+
   var path = `M 10 100 Q 500 100 1200 100`;
   var finalPath = path;
 
@@ -73,6 +89,8 @@ function svgAnimation() {
 
 }
 function imgAnimation() {
+  if (isMobile || minimalMobile || prefersReducedMotion) return;
+
   var textdivs = document.querySelectorAll(".textdiv");
 
   textdivs.forEach(function (dets) {
@@ -100,6 +118,8 @@ function imgAnimation() {
   });
 }
 function imgAnimation2() {
+  if (isMobile || minimalMobile || prefersReducedMotion) return;
+
   var textdivs = document.querySelectorAll(".largetextdiv");
 
   textdivs.forEach(function (dets) {
@@ -137,6 +157,7 @@ function imgAnimation2() {
   });
 }
 function marqueAnimation() {
+  if (isMobile || minimalMobile || prefersReducedMotion) return;
 
   window.addEventListener("wheel", function (e) {
     if (e.deltaY > 0) {
@@ -165,6 +186,8 @@ function marqueAnimation() {
 
 }
 function colorAnimation() {
+  if (isMobile || prefersReducedMotion) return;
+
   var color1 = document.querySelector("#c1");
   var color2 = document.querySelector("#c2");
   var pageColor = document.querySelector(".color");
@@ -195,128 +218,130 @@ imgAnimation2()
 marqueAnimation();
 
 function textAnimation() {
+  if (isMobile || minimalMobile || prefersReducedMotion) return;
+
   var text = document.querySelector(".text .lowertext h1");
-  var h1 = text.innerHTML; 
-  var splittedText = h1.split("<br>"); 
+  var h1 = text.innerHTML;
+  var splittedText = h1.split("<br>");
   var clutter = "";
 
-  splittedText.forEach(function(elem) {
-    clutter += `<span><h1>${elem}</h1></span><br>`; 
+  splittedText.forEach(function (elem) {
+    clutter += `<span><h1>${elem}</h1></span><br>`;
   });
 
   text.innerHTML = clutter;
 
-  gsap.to(".text .lowertext span h1",{
-    y:0,
-    duration:0.5,
-    stagger:0.2,
-    scrollTrigger:{
+  gsap.to(".text .lowertext span h1", {
+    y: 0,
+    duration: 0.5,
+    stagger: 0.2,
+    scrollTrigger: {
       trigger: ".page2",
-      scroller:"body",
-      start:"top 70%",
+      scroller: "body",
+      start: "top 70%",
     }
   })
 }
 
 textAnimation();
 
-gsap.to(".rightnav",{
-  scale:0.75,
-  scrollTrigger:{
-    trigger:".page1",
-    scroller:"body",
-    start:"top top",
-    scrub:4
+gsap.to(".rightnav", {
+  scale: isMobile || prefersReducedMotion ? 1 : 0.75,
+  scrollTrigger: {
+    trigger: ".page1",
+    scroller: "body",
+    start: "top top",
+    scrub: isMobile || prefersReducedMotion ? 0 : 4
   }
 })
 
 gsap.from(".div1 h1", {
-  y: "200%",
-  duration: 0.3,
-  delay: 0.2,
-  rotation: 6,
+  y: isMobile || prefersReducedMotion ? 0 : "200%",
+  duration: isMobile || prefersReducedMotion ? 0.2 : 0.3,
+  delay: 0.1,
+  rotation: isMobile || prefersReducedMotion ? 0 : 6,
   ease: "circ.out"
 })
 
-gsap.to(".maintext h1",{
-  y:0,
-  rotate:0,
-  duration:0.5,
-  stagger:0.2,
-  scrollTrigger:{
+gsap.to(".maintext h1", {
+  y: 0,
+  rotate: 0,
+  duration: isMobile || prefersReducedMotion ? 0.25 : 0.5,
+  stagger: isMobile || prefersReducedMotion ? 0.08 : 0.2,
+  scrollTrigger: {
     trigger: ".maintext",
-    scroller:"body",
-    start:"top 90%",
+    scroller: "body",
+    start: "top 90%",
   }
 })
 
-gsap.to(".maintext2 h1",{
-  y:0,
-  rotate:0,
-  duration:0.5,
-  delay:0.3,
-  stagger:0.2,
-  scrollTrigger:{
+gsap.to(".maintext2 h1", {
+  y: 0,
+  rotate: 0,
+  duration: 0.5,
+  delay: 0.3,
+  stagger: 0.2,
+  scrollTrigger: {
     trigger: ".page3",
-    scroller:"body",
-    start:"top 50%",
+    scroller: "body",
+    start: "top 50%",
 
 
   }
 })
 
-gsap.to(".maintext3 h1",{
-  y:0,
-  rotate:0,
-  duration:0.5,
-  stagger:0.2,
-  scrollTrigger:{
+gsap.to(".maintext3 h1", {
+  y: 0,
+  rotate: 0,
+  duration: 0.5,
+  stagger: 0.2,
+  scrollTrigger: {
     trigger: ".page4",
-    scroller:"body",
-    start:"top 50%",
-   
+    scroller: "body",
+    start: "top 50%",
+
   }
 })
 
-gsap.to(".maintext4 h1",{
-  y:0,
-  rotate:0,
-  duration:0.5,
-  stagger:0.2,
-  scrollTrigger:{
+gsap.to(".maintext4 h1", {
+  y: 0,
+  rotate: 0,
+  duration: 0.5,
+  stagger: 0.2,
+  scrollTrigger: {
     trigger: ".maintext4",
-    scroller:"body",
-    start:"top 60%",
+    scroller: "body",
+    start: "top 60%",
 
   }
 })
 
-function anim2(){
+function anim2() {
   var text = document.querySelector(".lasttext h1");
-var h1 = text.innerHTML; // Use innerHTML to get the content with <br> tags
-var splittedText = h1.split("<br>");
-var clutter = "";
+  var h1 = text.innerHTML; // Use innerHTML to get the content with <br> tags
+  var splittedText = h1.split("<br>");
+  var clutter = "";
 
-splittedText.forEach(function(elem){
-  clutter += `<span><h1>${elem}</h1></span><br>`; 
-})
+  splittedText.forEach(function (elem) {
+    clutter += `<span><h1>${elem}</h1></span><br>`;
+  })
 
-text.innerHTML = clutter;
+  text.innerHTML = clutter;
 
-// gsap.to(".lasttext h1 span h1",{
-//   y:0,
-//   rotate:0,
-//   duration:0.3,
-//   delay:0.4,
-//   stagger:0.2,
-//   scrollTrigger:{
-//     trigger: ".page2",
-//     scroller:"body",
-//     start:"90% 90%",
-//     markers:true
+  // gsap.to(".lasttext h1 span h1",{
+  //   y:0,
+  //   rotate:0,
+  //   duration:0.3,
+  //   delay:0.4,
+  //   stagger:0.2,
+  //   scrollTrigger:{
+  //     trigger: ".page2",
+  //     scroller:"body",
+  //     start:"90% 90%",
+  //     markers:true
 
-//   }
-// })
+  //   }
+  // })
 }
 
 // anim2()
